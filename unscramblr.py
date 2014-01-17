@@ -4,7 +4,7 @@ import operator
 import string
 from collections import defaultdict
 
-POSSIBLE_CHARACTERS = [ord(c) for c in (" ," + string.ascii_uppercase + string.ascii_lowercase)]
+POSSIBLE_CHARACTERS = (" ," + string.ascii_uppercase + string.ascii_lowercase)
 
 def tohex(v):
   return chr(v).encode("hex")
@@ -12,7 +12,7 @@ def tohex(v):
 class Unscramblr:
 
   def __init__(self, possibleChars=POSSIBLE_CHARACTERS):
-    self.possibleChars = possibleChars
+    self.possibleChars = [ord(c) for c in possibleChars]
     self.tocompare = []
 
   def addHexString(self, hexString):
